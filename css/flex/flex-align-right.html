@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"> -->
+
+<style>
+.container {
+	width: 100%;
+	height: 46px;
+	background-color: #ddd;
+	margin: 10px 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.item {
+	border: 1px solid #333;
+	width: 30px;
+	height: 30px;
+	margin: 8px;
+
+	text-align: center;
+	line-height: 30px;
+}
+.justifyRight {
+	/*https://stackoverflow.com/questions/22429003/right-aligning-flex-item*/
+	margin-left: auto;
+}
+.section {
+	display: flex;
+}
+</style>
+</head>
+
+
+<body>
+	
+<div class="container">
+	<div class="item">a</div>
+	<div class="item">b</div>
+	<div class="item justifyRight">c</div>
+</div>
+
+<div class="container">
+	<div class="section">
+		<div class="item">a</div>
+		<div class="item">b</div>
+	</div>
+	<div class="section justifyRight">
+		<div class="item">c</div>
+		<div class="item">d</div>
+	</div>
+</div>
+
+</body>
+</html>
