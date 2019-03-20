@@ -34,9 +34,6 @@ public class MergeWordFreqJob extends Configured implements Tool {
         protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
             String line = value.toString();
             String[] cols = line.split("\t");
-            for(String col : cols) {
-                System.out.println("col=" + col);
-            }
             outputKey.set(cols[0]);
             outputValue.set(Integer.valueOf(cols[1]));
             context.write(outputKey, outputValue);
@@ -77,22 +74,22 @@ public class MergeWordFreqJob extends Configured implements Tool {
     public int run(String[] args) throws Exception {
         conf = getConf();
 
-        String inputFilePath1 = "/home/welsonlin/work/_intellij/MRSimpleJob/tmp/SimpleJob/1.tsv";
-        String inputFilePath2 = "/home/welsonlin/work/_intellij/MRSimpleJob/tmp/SimpleJob/2.tsv";
-        String outputFolder = "/tmp/MRSimpleJob/output";
+        String inputFilePath1 = "/path/to/1.tsv";
+        String inputFilePath2 = "/path/to/2.tsv";
+        String outputFolder = "/path/to/output";
 
         // setup job
         Job job = Job.getInstance(this.conf, "MergeWordFreqJob");
 
-        job.setJarByClass(MergeWordFreqJob.class);             // 設定執行的Jar套件
+        job.setJarByClass(MergeWordFreqJob.class); // 設定執行的Jar套件
 
         // Setup mapper
-        job.setMapperClass(MyMapper.class);      // 設定Mapper類別
-        job.setMapOutputKeyClass(Text.class);    // 設定Mapper Key輸出類型
+        job.setMapperClass(MyMapper.class);             // 設定Mapper類別
+        job.setMapOutputKeyClass(Text.class);           // 設定Mapper Key輸出類型
         job.setMapOutputValueClass(IntWritable.class);  // 設定Mapper Value輸出類型
         // Setup reducer
-        job.setReducerClass(MyReducer.class);    // 設定Reducer類別
-        job.setOutputKeyClass(Text.class);       // 設定Key輸出類型
+        job.setReducerClass(MyReducer.class);           // 設定Reducer類別
+        job.setOutputKeyClass(Text.class);              // 設定Key輸出類型
         job.setOutputValueClass(IntWritable.class);     // 設定Value輸出類型
 
         // Setup input/output format
