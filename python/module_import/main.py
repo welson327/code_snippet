@@ -11,7 +11,7 @@ print(Constant.APP_DESC)
 # Import all from a file
 from src.combo import *
 u = User('welson')
-Util.print_user(u)
+print(Util.get_username(u))
 
 
 # Import a module from package

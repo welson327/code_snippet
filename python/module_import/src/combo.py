@@ -11,6 +11,5 @@ class User:
 
 class Util:
 	@staticmethod
-	def print_user(user):
-		print("User: ")
-		print("  name: " + user.name)
+	def get_username(user):
+		return user.name
